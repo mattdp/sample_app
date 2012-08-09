@@ -1,15 +1,14 @@
 require 'spec_helper'
 
 describe "StaticPages" do
+
+  subject { page }
+
   describe "Home page" do
-    it "should have the content 'Sample App'" do
-      visit root_path
-      page.should have_content('Sample App')
-    end
-    it "should have a title in ... | Home format" do
-      visit root_path
-      page.should have_selector('title', :text => " | Home")
-    end
+    before {visit root_path}
+    
+    it { should have_content('Sample App') }
+    it { should have_selector('title', :text => " | Home") }
   end
   
   describe "Help page" do
